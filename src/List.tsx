@@ -2,10 +2,21 @@ import React from 'react';
 import Task from './Task';
 import { Droppable } from 'react-beautiful-dnd';
 
+interface ListProps {
+    list: {
+            id: string;
+            title: string;
+            taskIds: string[];
+    }
+    tasks: {
+        id: string;
+        content: string;
+    }[]
+}
 
-const List = ({ list, tasks }) => {
+const List: React.SFC<ListProps> = ({ list, tasks }) => {
 
-    const getListStyle = isDraggingOver => ({
+    const getListStyle = (isDraggingOver: boolean) => ({
         backgroundColor: isDraggingOver ? 'rgba(135, 213, 222, .3)' : 'rgba(101, 157, 163, 1)',
     })
 

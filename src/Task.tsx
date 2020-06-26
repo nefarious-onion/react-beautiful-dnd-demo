@@ -1,10 +1,17 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
+interface TaskProps {
+    task: {
+        id: string;
+        content: string;
+    }
+    index: number;
+}
 
-const Task = ({ task, index }) => {
+const Task: React.SFC<TaskProps> = ({ task, index }) => {
 
-    const getItemStyle = (isDragging, draggableStyle) => ({
+    const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
         backgroundColor: isDragging ? 'rgba(0, 177, 196, .3)' : 'white',
         color: isDragging ? 'white' : 'black',
         ...draggableStyle

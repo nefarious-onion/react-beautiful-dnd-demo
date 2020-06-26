@@ -1,4 +1,21 @@
-export const listData = {
+export interface ListData {
+    tasks: {
+        [key: string]: {
+            id: string;
+            content: string;
+        }
+    };
+    lists: {
+        [key: string]: {
+            id: string;
+            title: string;
+            taskIds: string[]
+        }
+    };
+    listOrder: string[];
+}
+
+export const listData: ListData = {
     tasks: {
         'task-1': {id: 'task-1', content: 'Take the dog out'},
         'task-2': {id: 'task-2', content: 'Paint the bedroom'},

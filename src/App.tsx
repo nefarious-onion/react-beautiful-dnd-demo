@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import { listData } from './data';
 import List from './List';
 import './App.css';
+
+// type ListData = typeof listData;
+// type ListType = keyof ListData["lists"];
 
 const App = () => {
   const [data, setData] = useState(listData);
   console.log('this is the state', data);
 
 
-  const onDragEnd = result => {
+  const onDragEnd = (result: DropResult) => {
     const { destination, source, draggableId } = result;
     console.log(result);
 
